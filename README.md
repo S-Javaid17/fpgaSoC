@@ -4,7 +4,8 @@ From examples in the book "FPGA Prototyping by Systemverilog Examples (Chu, Pong
 
 Implemented on the **Nexys A7** development board from Digilent (Artix-7 series FPGA). 
  
- 
+ Up to 64 I/O cores in the MMIO subsystem
+
 
 **Top-Level Diagram of the System**
 
