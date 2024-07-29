@@ -22,10 +22,10 @@
 //many registers put together to form a RAM
 // 1 Asynch read, 1 Synch write port
 module reg_file
-  #(parameter ADDR_WIDTH = 3, DATA_WIDTH = 8)
+  #(parameter ADDR_WIDTH = 2, DATA_WIDTH = 8)
     (
         input logic clk,
-        input logic w_en,//write enable
+        input logic wr_en,//write enable
         input logic [ADDR_WIDTH - 1: 0] r_addr, // read address
         input logic [ADDR_WIDTH - 1: 0] w_addr, // write address
         input logic [DATA_WIDTH - 1: 0] w_data,
@@ -38,7 +38,7 @@ module reg_file
     //Write
     always_ff @(posedge clk)
     begin
-        if (w_en)
+        if (wr_en)
             memory[w_addr] <= w_data;
     end
             
