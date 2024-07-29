@@ -21,7 +21,7 @@
 
 
 module fifo
-#(parameter ADDR_WIDTH = 3, DATA_WIDTH = 8)
+#(parameter ADDR_WIDTH = 4, DATA_WIDTH = 8)
 (
     input logic clk, reset,
     input logic [DATA_WIDTH - 1: 0] w_data,//write data
@@ -32,12 +32,16 @@ module fifo
 
 //(Internal) Signal Declaration
 logic [ADDR_WIDTH - 1: 0] w_addr, r_addr; //write and read address
+logic wr_en, full_tmp;
+
+// write enabled only when FIFO is not full
+   assign wr_en = wr & ~full_tmp;
+   assign full = full_tmp;
 
 //Register File
 
 reg_file #(.ADDR_WIDTH(ADDR_WIDTH), .DATA_WIDTH(DATA_WIDTH)) RegFile
 (
-    .w_en(wr & ~full),
     .* //matches the names
 );
 
@@ -45,6 +49,6 @@ reg_file #(.ADDR_WIDTH(ADDR_WIDTH), .DATA_WIDTH(DATA_WIDTH)) RegFile
 
 fifo_ctrl #(.ADDR_WIDTH(ADDR_WIDTH)) CtrlUnit
 (
-    .*
+    .*, .full(full_tmp)
 );
 endmodule
