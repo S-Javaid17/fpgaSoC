@@ -1,5 +1,5 @@
-`ifndef IO_MAP_INCLUDED //change later as necessary
-`define IO_MAP_INCLUDED
+`ifndef _CHU_IO_MAP_INCLUDED
+`define _CHU_IO_MAP_INCLUDED
 
 // system clock rate in MHz; used for timer, uart, ddfs etc
 `define SYS_CLK_FREQ 100
@@ -7,7 +7,7 @@
 //io base address for microBlaze MCS
 `define BRIDGE_BASE 0xc0000000
 
-// slot module definitions
+// slot module definition
 // format: SLOT`_ModuleType_Name
 `define S0_SYS_TIMER  0
 `define S1_UART1      1
@@ -24,7 +24,7 @@
 `define S12_DDFS     12
 `define S13_ADSR     13
 
-// video module definitions
+// video module definition
 `define V0_SYNC      0
 `define V1_MOUSE     1
 `define V2_OSD       2
@@ -38,6 +38,6 @@
 `define FRAME_OFFSET 0x00c00000
 `define FRAME_BASE   BRIDGE_BASE+FRAME_OFFSET
 
-`endif //IO_MAP
+`endif //_CHU_IO_MAP
 
 //Adapted from https://github.com/aseddin/ece_4305/blob/main/M8%20to%20M%2013%20-%20Sampler%20System/HDL/chu_io_map.svh
