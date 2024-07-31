@@ -177,18 +177,18 @@ module mmio_sys_sampler
     .adc_n(adc_n)
     );
     
-//    // slot 6: pwm 
-//     chu_io_pwm_core #(.W(8), .R(10)) pwm_slot6 //
-//     (.clk(clk),
-//      .reset(reset),
-//      .cs(cs_array[`S6_PWM]),
-//      .read(mem_rd_array[`S6_PWM]),
-//      .write(mem_wr_array[`S6_PWM]),
-//      .addr(reg_addr_array[`S6_PWM]),
-//      .rd_data(rd_data_array[`S6_PWM]),
-//      .wr_data(wr_data_array[`S6_PWM]),
-//      .pwm_out(pwm)
-//      );
+   // slot 6: pwm 
+    pwm_core #(.W(8), .R(10)) pwm_slot6 //
+    (.clk(clk),
+     .reset(reset),
+     .cs(cs_array[`S6_PWM]),
+     .read(mem_rd_array[`S6_PWM]),
+     .write(mem_wr_array[`S6_PWM]),
+     .addr(reg_addr_array[`S6_PWM]),
+     .rd_data(rd_data_array[`S6_PWM]),
+     .wr_data(wr_data_array[`S6_PWM]),
+     .pwm_out(pwm)
+     );
      
 //     // slot 6: pwm 
 //      chu_debounce_core #(.W(5), .N(20)) debounce_slot7 //
@@ -295,7 +295,7 @@ module mmio_sys_sampler
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=6; i<64; i=i+1) begin
+      for (i=7; i<64; i=i+1) begin
          assign rd_data_array[i] = 32'h0;
       end
    endgenerate
