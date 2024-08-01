@@ -67,7 +67,7 @@ module pwm_core
     logic tick;//enables the duty counter 
     logic [31:0] dvsr_reg;//stores divisor
 
-    //Wrapping Circuit
+    //Wrapping Circuit (no reading)
 
     //Decoding 
 
@@ -87,7 +87,7 @@ module pwm_core
 
     always_ff @( posedge clk, posedge reset ) 
         if (dvsduty_array_enr_en)
-            duty_2d_reg[addr[3:0]] <= wr_data[R:0];   
+            duty_2d_reg[addr[3:0]] <= wr_data[R:0]; //only need to decode lower 4 bits  
 
     //PWM 
 
@@ -119,7 +119,7 @@ module pwm_core
         genvar i;
         for (i=0; i<W; i=i+1) 
             begin
-                assign pwm_next[i] = d_ext < duty_2d_reg[i];
+                assign pwm_next[i] = d_ext < duty_2d_reg[i];//different comparators for different registers/output signals
             end
     endgenerate
     assign pwm_out = pwm_reg;
