@@ -85,8 +85,8 @@ module pwm_core
 
     //Duty Cycle Register
 
-    always_ff @( posedge clk, posedge reset ) 
-        if (dvsduty_array_enr_en)
+    always_ff @( posedge clk) 
+        if (duty_array_en)
             duty_2d_reg[addr[3:0]] <= wr_data[R:0]; //only need to decode lower 4 bits  
 
     //PWM 

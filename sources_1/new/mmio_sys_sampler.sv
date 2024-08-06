@@ -217,21 +217,21 @@ module mmio_sys_sampler
 //     .an(an)
 //     );
     
-//    // slot 9: spi 
-//    chu_spi_core #(.S(1)) spi_slot9 
-//    (.clk(clk),
-//     .reset(reset),
-//     .cs(cs_array[`S9_SPI]),
-//     .read(mem_rd_array[`S9_SPI]),
-//     .write(mem_wr_array[`S9_SPI]),
-//     .addr(reg_addr_array[`S9_SPI]),
-//     .rd_data(rd_data_array[`S9_SPI]),
-//     .wr_data(wr_data_array[`S9_SPI]),
-//     .spi_sclk(acl_sclk),
-//     .spi_mosi(acl_mosi),
-//     .spi_miso(acl_miso),
-//     .spi_ss_n(acl_ss)
-//     );
+   // slot 9: spi 
+   spi_core #(.S(1)) spi_slot9 
+   (.clk(clk),
+    .reset(reset),
+    .cs(cs_array[`S9_SPI]),
+    .read(mem_rd_array[`S9_SPI]),
+    .write(mem_wr_array[`S9_SPI]),
+    .addr(reg_addr_array[`S9_SPI]),
+    .rd_data(rd_data_array[`S9_SPI]),
+    .wr_data(wr_data_array[`S9_SPI]),
+    .spi_sclk(acl_sclk),
+    .spi_mosi(acl_mosi),
+    .spi_miso(acl_miso),
+    .spi_ss_n(acl_ss)
+    );
     
 //    // slot 10: i2c 
 //     chu_i2c_core i2c_slot10 
@@ -295,7 +295,7 @@ module mmio_sys_sampler
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=7; i<64; i=i+1) begin
+      for (i=10; i<64; i=i+1) begin
          assign rd_data_array[i] = 32'h0;
       end
    endgenerate
