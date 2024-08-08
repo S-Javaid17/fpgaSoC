@@ -233,19 +233,19 @@ module mmio_sys_sampler
     .spi_ss_n(acl_ss)
     );
     
-//    // slot 10: i2c 
-//     chu_i2c_core i2c_slot10 
-//     (.clk(clk),
-//      .reset(reset),
-//      .cs(cs_array[`S10_I2C]),
-//      .read(mem_rd_array[`S10_I2C]),
-//      .write(mem_wr_array[`S10_I2C]),
-//      .addr(reg_addr_array[`S10_I2C]),
-//      .rd_data(rd_data_array[`S10_I2C]),
-//      .wr_data(wr_data_array[`S10_I2C]),
-//      .scl(tmp_i2c_scl),
-//      .sda(tmp_i2c_sda)
-//      );
+   // slot 10: i2c 
+    i2c_core i2c_slot10 
+    (.clk(clk),
+     .reset(reset),
+     .cs(cs_array[`S10_I2C]),
+     .read(mem_rd_array[`S10_I2C]),
+     .write(mem_wr_array[`S10_I2C]),
+     .addr(reg_addr_array[`S10_I2C]),
+     .rd_data(rd_data_array[`S10_I2C]),
+     .wr_data(wr_data_array[`S10_I2C]),
+     .scl(tmp_i2c_scl),
+     .sda(tmp_i2c_sda)
+     );
      
 //    // slot 11: ps2 
 //     chu_ps2_core #(.W_SIZE(8)) ps2_slot11 
@@ -295,7 +295,7 @@ module mmio_sys_sampler
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=10; i<64; i=i+1) begin
+      for (i=11; i<64; i=i+1) begin
          assign rd_data_array[i] = 32'h0;
       end
    endgenerate
