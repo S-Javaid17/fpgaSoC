@@ -247,19 +247,19 @@ module mmio_sys_sampler
      .sda(tmp_i2c_sda)
      );
      
-//    // slot 11: ps2 
-//     chu_ps2_core #(.W_SIZE(8)) ps2_slot11 
-//     (.clk(clk),
-//      .reset(reset),
-//      .cs(cs_array[`S11_PS2]),
-//      .read(mem_rd_array[`S11_PS2]),
-//      .write(mem_wr_array[`S11_PS2]),
-//      .addr(reg_addr_array[`S11_PS2]),
-//      .rd_data(rd_data_array[`S11_PS2]),
-//      .wr_data(wr_data_array[`S11_PS2]),
-//      .ps2d(ps2d),
-//      .ps2c(ps2c)
-//      );
+   // slot 11: ps2 
+    ps2_core #(.W_SIZE(8)) ps2_slot11 
+    (.clk(clk),
+     .reset(reset),
+     .cs(cs_array[`S11_PS2]),
+     .read(mem_rd_array[`S11_PS2]),
+     .write(mem_wr_array[`S11_PS2]),
+     .addr(reg_addr_array[`S11_PS2]),
+     .rd_data(rd_data_array[`S11_PS2]),
+     .wr_data(wr_data_array[`S11_PS2]),
+     .ps2d(ps2d),
+     .ps2c(ps2c)
+     );
      
 //    // slot 12: ddfs 
 //    chu_ddfs_core ddfs_slot12 
@@ -295,7 +295,7 @@ module mmio_sys_sampler
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=11; i<64; i=i+1) begin
+      for (i=12; i<64; i=i+1) begin
          assign rd_data_array[i] = 32'h0;
       end
    endgenerate
