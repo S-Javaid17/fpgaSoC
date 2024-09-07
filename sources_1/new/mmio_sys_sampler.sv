@@ -191,31 +191,31 @@ module mmio_sys_sampler
      );
      
 //     // slot 6: pwm 
-//      chu_debounce_core #(.W(5), .N(20)) debounce_slot7 //
-//      (.clk(clk),
-//       .reset(reset),
-//       .cs(cs_array[`S7_BTN]),
-//       .read(mem_rd_array[`S7_BTN]),
-//       .write(mem_wr_array[`S7_BTN]),
-//       .addr(reg_addr_array[`S7_BTN]),
-//       .rd_data(rd_data_array[`S7_BTN]),
-//       .wr_data(wr_data_array[`S7_BTN]),
-//       .din(btn)
-//       );
+     debounce_core #(.W(5), .N(20)) debounce_slot7 //
+     (.clk(clk),
+      .reset(reset),
+      .cs(cs_array[`S7_BTN]),
+      .read(mem_rd_array[`S7_BTN]),
+      .write(mem_wr_array[`S7_BTN]),
+      .addr(reg_addr_array[`S7_BTN]),
+      .rd_data(rd_data_array[`S7_BTN]),
+      .wr_data(wr_data_array[`S7_BTN]),
+      .din(btn)
+      );
        
 //    // slot 8: led mux 
-//    chu_led_mux_core led_slot8 
-//    (.clk(clk),
-//     .reset(reset),
-//     .cs(cs_array[`S8_SSEG]),
-//     .read(mem_rd_array[`S8_SSEG]),
-//     .write(mem_wr_array[`S8_SSEG]),
-//     .addr(reg_addr_array[`S8_SSEG]),
-//     .rd_data(rd_data_array[`S8_SSEG]),
-//     .wr_data(wr_data_array[`S8_SSEG]),
-//     .sseg(sseg),
-//     .an(an)
-//     );
+   led_mux_core led_slot8 
+   (.clk(clk),
+    .reset(reset),
+    .cs(cs_array[`S8_SSEG]),
+    .read(mem_rd_array[`S8_SSEG]),
+    .write(mem_wr_array[`S8_SSEG]),
+    .addr(reg_addr_array[`S8_SSEG]),
+    .rd_data(rd_data_array[`S8_SSEG]),
+    .wr_data(wr_data_array[`S8_SSEG]),
+    .sseg(sseg),
+    .an(an)
+    );
     
    // slot 9: spi 
    spi_core #(.S(1)) spi_slot9 
@@ -262,40 +262,40 @@ module mmio_sys_sampler
      );
      
 //    // slot 12: ddfs 
-//    chu_ddfs_core ddfs_slot12 
-//    (.clk(clk),
-//     .reset(reset),
-//     .cs(cs_array[`S12_DDFS]),
-//     .read(mem_rd_array[`S12_DDFS]),
-//     .write(mem_wr_array[`S12_DDFS]),
-//     .addr(reg_addr_array[`S12_DDFS]),
-//     .rd_data(rd_data_array[`S12_DDFS]),
-//     .wr_data(wr_data_array[`S12_DDFS]),
-//     .focw_ext(26'h0),
-//     .pha_ext(26'h0),
-//     .env_ext(adsr_env),
-//     .pcm_out(),
-//     .digital_out(ddfs_sq_wave),
-//     .pdm_out(pdm)
-//     );
+   ddfs_core ddfs_slot12 
+   (.clk(clk),
+    .reset(reset),
+    .cs(cs_array[`S12_DDFS]),
+    .read(mem_rd_array[`S12_DDFS]),
+    .write(mem_wr_array[`S12_DDFS]),
+    .addr(reg_addr_array[`S12_DDFS]),
+    .rd_data(rd_data_array[`S12_DDFS]),
+    .wr_data(wr_data_array[`S12_DDFS]),
+    .focw_ext(26'h0),
+    .pha_ext(26'h0),
+    .env_ext(adsr_env),
+    .pcm_out(),
+    .digital_out(ddfs_sq_wave),
+    .pdm_out(pdm)
+    );
     
 //    // slot 13: adsr 
-//    chu_adsr_core adsr_slot13 
-//    (.clk(clk),
-//     .reset(reset),
-//     .cs(cs_array[`S13_ADSR]),
-//     .read(mem_rd_array[`S13_ADSR]),
-//     .write(mem_wr_array[`S13_ADSR]),
-//     .addr(reg_addr_array[`S13_ADSR]),
-//     .rd_data(rd_data_array[`S13_ADSR]),
-//     .wr_data(wr_data_array[`S13_ADSR]),
-//     .adsr_env(adsr_env)
-//     );
+   adsr_core adsr_slot13 
+   (.clk(clk),
+    .reset(reset),
+    .cs(cs_array[`S13_ADSR]),
+    .read(mem_rd_array[`S13_ADSR]),
+    .write(mem_wr_array[`S13_ADSR]),
+    .addr(reg_addr_array[`S13_ADSR]),
+    .rd_data(rd_data_array[`S13_ADSR]),
+    .wr_data(wr_data_array[`S13_ADSR]),
+    .adsr_env(adsr_env)
+    );
 
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=12; i<64; i=i+1) begin
+      for (i=14; i<64; i=i+1) begin
          assign rd_data_array[i] = 32'h0;
       end
    endgenerate
