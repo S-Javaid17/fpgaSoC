@@ -8,7 +8,8 @@ The video subsystem is responsible for rendering output directly to a VGA displa
 
 Much of this design is based on examples from the book *"FPGA Prototyping by SystemVerilog Examples"* by Pong P. Chu, which is a great reference for learning and prototyping.
 
-## **Top-Level Diagram of the System**
+****Refer to the "SoC Top" folder to navigate through the project***
+## ***Top-Level Diagram of the System**
 
 ![image](https://github.com/user-attachments/assets/35959464-0ea1-46a9-a355-f296e69e63ef)
 
