@@ -1,5 +1,5 @@
 
-# **SoC with Video and I/O**
+# **[SoC with Video and I/O](./SoC%20Top)**
 
 This project features a custom System on Chip (SoC) implemented on the Nexys A7 development board (Artix-7 FPGA). The SoC incorporates both a Memory-Mapped I/O (MMIO) subsystem and a functional video output subsystem.
 
