@@ -18,7 +18,7 @@ The SoC is implemented using the *MicroBlaze MicroController System (MCS)* from 
 
 ## **Selected Example Demonstration**
 - [ADC](./SoC%20Top/MMIO%20Subsystem/ADC%20Core)
-- SPI
+- [SPI](./SoC%20Top/MMIO%20Subsystem/SPI%20Core)
 - Pattern Generator + RGB to Grayscale
 - Sprite
 - On-Screen Character Display
