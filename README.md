@@ -16,7 +16,7 @@ Much of this design is based on examples from the book *"FPGA Prototyping by Sys
 
 The SoC is implemented using the *MicroBlaze MicroController System (MCS)* from AMD.
 
-## **Selected Example Demonstration**
+## **Selected Example Demonstrations**
 - [ADC](./SoC%20Top/MMIO%20Subsystem/ADC%20Core)
 - [SPI](./SoC%20Top/MMIO%20Subsystem/SPI%20Core)
 - [Pattern Generator + RGB to Grayscale](./SoC%20Top/Video%20Subsystem/RGB-to-Grayscale%20Core)
